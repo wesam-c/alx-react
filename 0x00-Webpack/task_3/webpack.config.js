@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
 	plugins: [
 		new HTMLWebpackPlugin({
+			title: 'ALX Dashboard',
 			filename: './index.html',
 		}),
 		new CleanWebpackPlugin(),
@@ -47,13 +48,12 @@ module.exports = {
 	rules: [
 		{
 			test: /\.css$/i,
-			use: ["css-loader", "style-loader"],
+			use: ["style-loader", "css-loader" ], //order matters here
 		},
 		{
 			test: /\.(?:ico|gif|png|jpe?g|svg)$/i,
 			type: 'asset/resource',
 			use: [
-				"file-loader",
 				{
 					loader: "image-webpack-loader",
 					options: {
